@@ -28,5 +28,5 @@ ssh $remote_host docker exec $remote_docker_name find /usr/lib/ -name $beam_file
 ssh $remote_host docker exec $remote_docker_name find /usr/lib/ -name $beam_file_name -exec cp /tmp/$beam_file_name {} \\\;
 
 # hotswap module on running node
-ssh $remote_host docker exec $remote_docker_name $erl_call_path -v -c $cookie -n $op_worker_node_name -a "\"code purge [${beam_name}]\""
+ssh $remote_host docker exec $remote_docker_name $erl_call_path -c $cookie -n $op_worker_node_name -a "\"code purge [${beam_name}]\""
 ssh $remote_host docker exec $remote_docker_name $erl_call_path -c $cookie -n $op_worker_node_name -a "\"code load_file [${beam_name}]\""
