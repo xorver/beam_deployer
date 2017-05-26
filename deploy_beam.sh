@@ -9,7 +9,7 @@ then
     exit 1
 fi
 
-#args
+# args
 beam_path=$1
 remote_host=$2
 remote_docker_name=$3
@@ -19,7 +19,7 @@ beam_file_name=${beam_path##*/}
 beam_name=${beam_file_name%.beam}
 erl_call_path=/opt/couchbase/lib/erlang/lib/erl_interface-3.7.15/bin/erl_call
 
-#copy beam into the docker
+# copy beam into the docker
 scp $beam_path $remote_host:/tmp/$beam_file_name
 ssh $remote_host docker cp /tmp/$beam_file_name $remote_docker_name:/tmp/$beam_file_name
 
